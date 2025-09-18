@@ -6,14 +6,15 @@ use yii\widgets\ActiveForm;
 /** @var \app\models\LoginForm $model */
 
 $this->title = 'Login to Account';
-$this->registerCssFile('@web/css/login.css');
+$this->registerCssFile('@web/css/main.css');
 ?>
 <div class="auth-page">
     <div class="auth-bg"></div>
 
     <div class="auth-card" role="dialog" aria-labelledby="auth-title">
+        <div class="login-content">
         <h1 id="auth-title"><?= Html::encode($this->title) ?></h1>
-        <p class="auth-sub">Please enter your email and password to continue</p>
+        <p class="form-text">Please enter your email and password to continue</p>
 
         <?php $form = ActiveForm::begin([
             'id' => 'login-form',
@@ -30,18 +31,19 @@ $this->registerCssFile('@web/css/login.css');
         <?= $form->errorSummary($model, ['class' => 'form-errors']) ?>
 
         <?= $form->field($model, 'email')
-            ->input('email', ['placeholder' => 'you@example.com', 'autocomplete' => 'email'])
+            ->input('email', ['placeholder' => 'esteban_schiller@gmail.com', 'autocomplete' => 'email'])
             ->label('Email address:') ?>
 
         <?= $form->field($model, 'password')
-            ->passwordInput(['placeholder' => 'Password', 'autocomplete' => 'current-password'])
+            ->passwordInput(['placeholder' => '● ● ● ● ● ● ● ● ●', 'autocomplete' => 'current-password'])
             ->label('Password') ?>
 
         <div class="form-actions">
-            <?= Html::submitButton('Sign In', ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Back to Home', ['site/index'], ['class' => 'btn btn-secondary']) ?>
+            <?= Html::submitButton('Sign In', ['class' => 'btn btn-primary btn-form']) ?>
+            <?= Html::a('Back to Home', ['site/index'], ['class' => 'btn btn-secondary btn-form']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
+        </div>
     </div>
 </div>

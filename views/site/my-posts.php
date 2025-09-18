@@ -7,8 +7,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 $this->title = 'My posts';
-$this->registerCssFile('@web/css/my-posts.css');
+$this->registerCssFile('@web/css/main.css');
 ?>
+
 <div class="card">
     <?php $form = ActiveForm::begin([
         'action' => ['post/create'],

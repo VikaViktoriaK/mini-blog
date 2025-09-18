@@ -18,11 +18,12 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
-    <?php $this->registerCssFile('@web/css/styles.css'); ?>
+    <?php $this->registerCssFile('@web/css/main.css');?>
 </head>
 <body>
 <?php $this->beginBody() ?>
 
+<div class="container">
 <header class="site-header">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -45,8 +46,8 @@ AppAsset::register($this);
             <?= Html::endForm() ?>
         <?php endif; ?>
     </div>
-
 </header>
+</div>
 
 <main class="container">
     <?= $content ?>
