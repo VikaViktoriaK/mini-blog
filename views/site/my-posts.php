@@ -9,21 +9,6 @@ use yii\widgets\ActiveForm;
 $this->title = 'My posts';
 $this->registerCssFile('@web/css/my-posts.css');
 ?>
-<div class="page-header">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <div class="header-actions">
-        <?= Html::a('All posts', ['site/index'], ['class' => 'btn btn-secondary']) ?>
-
-        <?php
-        // Logout по POST
-        echo Html::beginForm(['site/logout'], 'post', ['class' => 'd-inline']);
-        echo Html::submitButton('Logout', ['class' => 'btn btn-primary']);
-        echo Html::endForm();
-        ?>
-    </div>
-</div>
-
 <div class="card">
     <?php $form = ActiveForm::begin([
         'action' => ['post/create'],

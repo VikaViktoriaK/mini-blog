@@ -89,7 +89,7 @@ class PostController extends Controller
     /** (Опционально) список всех постов для гостей */
     public function actionIndex()
     {
-        $posts = Post::find()->orderBy(['id' => SORT_DESC])->all();
-        return $this->render('index', ['posts' => $posts]);
+        return $this->renderFile('@app/views/index.php');
     }
+
 }

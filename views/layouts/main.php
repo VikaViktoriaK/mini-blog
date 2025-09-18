@@ -4,7 +4,6 @@
 
 use app\assets\AppAsset;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -25,21 +24,28 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <header class="site-header">
-    <a class="site-brand" href="<?= Url::to(['site/index']) ?>">Mini Blog</a>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="header-actions">
-
         <?php if (Yii::$app->user->isGuest): ?>
             <?= Html::a('Login', ['site/login'], ['class' => 'btn btn-primary']) ?>
         <?php else: ?>
-            <?= Html::a('My posts', ['post/my'], ['class' => 'btn btn-secondary']) ?>
             <?php
-            echo Html::beginForm(['site/logout'], 'post', ['class' => 'd-inline']);
-            echo Html::submitButton('Logout', ['class' => 'btn btn-primary']);
-            echo Html::endForm();
+            $route = Yii::$app->controller->route;
+
+            if ($route === 'post/my') {
+                echo Html::a('All posts', ['site/index'], ['class' => 'btn btn-secondary']);
+            } else {
+                echo Html::a('My posts', ['post/my'], ['class' => 'btn btn-secondary']);
+            }
             ?>
+
+            <?= Html::beginForm(['site/logout'], 'post', ['class' => 'd-inline']) ?>
+            <?= Html::submitButton('Logout', ['class' => 'btn btn-primary']) ?>
+            <?= Html::endForm() ?>
         <?php endif; ?>
     </div>
+
 </header>
 
 <main class="container">

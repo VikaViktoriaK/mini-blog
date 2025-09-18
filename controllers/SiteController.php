@@ -65,7 +65,6 @@ class SiteController extends Controller
         return $this->render('login', ['model' => $model]);
     }
 
-    /** Логаут */
     public function actionLogout()
     {
         Yii::$app->user->logout();
