@@ -1,5 +1,4 @@
 <?php
-use yii\helpers\Url;
 /** @var yii\web\View $this */
 $this->registerCssFile('@web/css/main.css');
 

@@ -48,7 +48,6 @@ class PostController extends Controller
         ]);
     }
 
-    /** Создание */
     public function actionCreate()
     {
         $model = new Post();
@@ -61,7 +60,6 @@ class PostController extends Controller
         return $this->redirect(['post/my']);
     }
 
-    /** Обновление */
     public function actionUpdate($id)
     {
         $model = Post::findOne(['id' => $id, 'user_id' => Yii::$app->user->id]);
@@ -86,7 +84,6 @@ class PostController extends Controller
         return $this->redirect(['post/my']);
     }
 
-    /** (Опционально) список всех постов для гостей */
     public function actionIndex()
     {
         return $this->renderFile('@app/views/index.php');
